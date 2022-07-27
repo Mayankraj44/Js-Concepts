@@ -1,0 +1,6 @@
+/*
+
+Polyfill is a piece of code used to provide modern functionality on the browser that do 
+to support that functionality yet .
+Like forEach is not supported by Internet Explorer we write a piece a code that will work how forEach work
+*/
