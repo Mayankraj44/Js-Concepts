@@ -16,8 +16,8 @@ forEach((element,index,originalArray){fnbody},thisArg)
 */
 
 
-const arr=[1]
-const arr2=["1","b"]
+const arr=[1,2,3,4,5]
+
 
 
 
@@ -46,18 +46,29 @@ Array.prototype.forEach=null; // simulating browser incompatabilty
 if(!Array.prototype.forEach){
     Array.prototype.forEach=function(callback,optThis){
         /* this is only work when callback is provided using regular function because arrow function does 
-        not have its this keyword they take the value of this from execution scope nand bind will not have any effect */
+        not have its this keyword they take the value of this from execution scope and bind will not have any effect */
         const newCallback=callback.bind(optThis) 
         for(let ind=0;ind<this.length;ind++){
             newCallback(this[ind],ind,this)
         }
     }
 }
+const arr1=[1,2,3,4,4,5]
+const arr2=["1","b"]
 
-arr.forEach((val,ind,array)=>{
-    console.log("Value",val);
-    console.log("index",ind);
-    console.log("Array",array);
-    console.log("this",this)
+// regular function in forEach
+arr.forEach(function(val,ind,array){
+    console.log("Value =",val);
+    console.log("index =",ind);
+    console.log("Array = ",array);
+    console.log("this =",this)
 },arr2)
+
+//array function in forEach
+arr.forEach((val,ind,array)=>{
+    console.log("Value =",val);
+    console.log("index =",ind);
+    console.log("Array = ",array);
+    console.log("this =",this)
+})
 
