@@ -11,7 +11,8 @@ function rotateByN(arr, n) {
     for (let i = 0; i < num; i++) {
       const element = arr.pop();
       arr.unshift(element);
-    }ß
+    }
+    ß;
   }
   return arr;
 }
