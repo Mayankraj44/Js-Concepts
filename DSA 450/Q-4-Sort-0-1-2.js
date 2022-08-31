@@ -39,28 +39,31 @@ function sort2(array) {
     ...Array(count2).fill(2),
   ];
 }
-
 function sort3(array) {
-  //2 pointer approach
-  //[2,1,2,2,0]
-  let pointer1 = 0;
-  let pointer2 = array.length - 1;
-  for (let i = 0; i < pointer2; ) {
-    console.log("i=", i, "Array=", array);
-    console.log("pointer1=", pointer1, "pointer2=", pointer2);
-    if (array[i] < array[pointer1]) {
-      [array[i], array[pointer1]] = [array[pointer1], array[i]];
+  //2 pointer approach or dutch national flag algo
+
+  let low = 0,
+    mid = 0,
+    high = array.length - 1;
+  let count = 0;
+  while (mid <= high) {
+    count++;
+    if (array[mid] === 0) {
+      [array[low], array[mid]] = [array[mid], array[low]];
+      low++;
+      mid++;
+    } else if (array[mid] === 1) {
+      console.log("1 block");
+      mid++;
+      console.log("1 block");
+    } else if (array[mid] === 2) {
+      console.log("2 block");
+      [array[high], array[mid]] = [array[mid], array[high]];
+      high--;
     }
-    if (array[i] > array[pointer2]) {
-      [array[i], array[pointer2]] = [array[pointer2], array[i]];
-    } else {
-      i++;
-    }
-    if (array[pointer1] === 0) pointer1++;
-    if (array[pointer2] === 2) pointer2--;
   }
-  console.log("pointer1=", pointer1, "pointer2=", pointer2);
+  console.log("Count", count);
   return array;
 }
 
-console.log(sort3([2, 2, 0, 0, 0, 0, 0]));
+console.log(sort3([0, 0, 0, 0, 0, 2, 2]));
