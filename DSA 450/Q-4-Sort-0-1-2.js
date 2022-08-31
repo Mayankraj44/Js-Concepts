@@ -45,24 +45,22 @@ function sort3(array) {
   let low = 0,
     mid = 0,
     high = array.length - 1;
-  let count = 0;
   while (mid <= high) {
     count++;
     if (array[mid] === 0) {
+      // console.log("0 block");
       [array[low], array[mid]] = [array[mid], array[low]];
       low++;
       mid++;
     } else if (array[mid] === 1) {
-      console.log("1 block");
+      // console.log("1 block");
       mid++;
-      console.log("1 block");
     } else if (array[mid] === 2) {
-      console.log("2 block");
+      // console.log("2 block");
       [array[high], array[mid]] = [array[mid], array[high]];
       high--;
     }
   }
-  console.log("Count", count);
   return array;
 }
 
