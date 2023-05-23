@@ -1,6 +1,8 @@
 // Simple Currying
 //1- add(5,4) to add(5)(4)
 
+console.log("Simple Currying");
+
 function add(a, b) {
   return a + b;
 }
@@ -19,6 +21,7 @@ console.log(add(5, 4));
 console.log(curriedFunc(5)(4));
 
 // Using recursion
+console.log("Using recursion");
 
 function sum(...arg) {
   return arg.reduce((acc, ele) => {
@@ -44,6 +47,8 @@ console.log(sum(2, 5));
 console.log(curriedSum(2)(5));
 
 // Infinte Currying
+
+console.log("Infinite currying");
 /*
 function sum3(){
     ...
